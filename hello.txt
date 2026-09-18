@@ -1,1 +1,11 @@
 "Hello World" 
+ceci est un test cool
+
+liste commande git :
+-cd
+-git status
+-git diff
+-git add .
+-git status
+-git commit -m "..."
+-git push
