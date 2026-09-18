@@ -2,10 +2,32 @@
 ceci est un test cool
 
 liste commande git :
--cd
--git status
--git diff
--git add .
--git status
--git commit -m "..."
--git push
+1. cd
+Affiche (sous cmd.exe) le dossier dans lequel tu te trouves actuellement.
+Pourquoi : vérifier que tu es bien dans C:\Users\ovide\Desktop\test git avant de toucher à quoi que ce soit — si tu es dans le mauvais dossier, toutes les commandes suivantes agiraient sur le mauvais projet (ou rien du tout).
+
+2. git status
+Affiche l'état actuel de ton dépôt : quels fichiers ont été modifiés, ajoutés, supprimés, ou ne sont pas encore suivis par Git.
+Pourquoi : savoir avant d'agir ce que Git a détecté comme changement, pour confirmer que ça correspond bien à ce que tu penses avoir modifié.
+
+3. git diff
+Affiche le détail ligne par ligne des modifications (lignes ajoutées en +, supprimées en -) dans les fichiers déjà suivis mais pas encore "stagés".
+Pourquoi : vérification la plus précise — tu vois le contenu exact qui va être enregistré, pas juste le nom du fichier.
+
+4. git add .
+Prépare ("stage") tous les fichiers modifiés du dossier courant (le . signifie "tout le dossier actuel") pour le prochain commit.
+Pourquoi : Git ne sauvegarde rien automatiquement — il faut explicitement lui dire quels changements inclure dans le prochain instantané. C'est une étape intermédiaire entre "modifié" et "sauvegardé dans l'historique".
+
+5. git status (encore)
+Refait un état des lieux, mais cette fois après le add — les fichiers stagés apparaissent en vert sous "Changes to be committed".
+Pourquoi : dernière vérification avant de committer, pour confirmer que tout ce que tu voulais inclure est bien pris en compte (et rien de plus).
+
+6. git commit -m "..."
+Enregistre définitivement un instantané (snapshot) des fichiers stagés dans l'historique local du projet, avec un message descriptif à la place de "...".
+Pourquoi : c'est le vrai point de sauvegarde dans Git — à partir de là, tu peux toujours revenir à cette version précise plus tard si besoin. Sans ce message, tu (ou quelqu'un d'autre) ne saurait pas rétrospectivement ce que contenait ce commit.
+
+7. git push
+Envoie les commits enregistrés localement vers le dépôt distant sur GitHub.
+Pourquoi : jusqu'ici, tout restait uniquement sur ton ordinateur (git commit ne touche pas Internet). Le push est la seule étape qui rend tes changements visibles en ligne, pour toi depuis un autre appareil ou pour d'autres personnes.
+
+En résumé, la logique globale : add sélectionne, commit sauvegarde localement, push publie en ligne. status et diff ne modifient rien — ce sont uniquement des commandes d'inspection, à utiliser aussi souvent que tu veux sans risque.
